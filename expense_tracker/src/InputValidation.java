@@ -6,7 +6,7 @@ public class InputValidation {
     private static final List<String> VALID_CATEGORIES = Arrays.asList("food", "travel", "bills", "entertainment", "other");
 
     public static void validateAmount(double amount) throws IllegalArgumentException {
-        if (amount <= 0 || amount >= 1000) {
+        if (amount < 0 || amount > 1000) {
             throw new IllegalArgumentException("Amount must be greater than 0 and less than 1000.");
         }
     }
