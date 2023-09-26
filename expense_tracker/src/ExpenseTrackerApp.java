@@ -1,3 +1,5 @@
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,16 +26,31 @@ public class ExpenseTrackerApp {
     // Handle add transaction button clicks
     view.getAddTransactionBtn().addActionListener(e -> {
       
-      // Get transaction data from view
-      double amount = view.getAmountField(); 
-      String category = view.getCategoryField();
-
-      // Create transaction object
-      Transaction t = new Transaction(amount, category);
-
-      // Call controller to add transaction
-      view.addTransaction(t);
-    });
+       // Get transaction data from view
+       double amount;
+       String category;
+ 
+       try {
+         amount = view.getAmountField();
+         InputValidation.validateAmount(amount);
+         
+         category = view.getCategoryField();
+         InputValidation.validateCategory(category);
+ 
+         Transaction t = new Transaction(amount, category);
+ 
+         view.addTransaction(t);
+ 
+      } catch(NumberFormatException x) {
+ 
+         JOptionPane.showMessageDialog(new JFrame(), "Invalid input for amount. Please enter a valid number.");
+ 
+      } catch(IllegalArgumentException x){
+ 
+         JOptionPane.showMessageDialog(new JFrame(), x.getMessage());
+         
+      }
+     });
 
   }
 
