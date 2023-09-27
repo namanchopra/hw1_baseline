@@ -4,7 +4,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * The ExpenseTrackerApp class allows users to add/remove daily transactions.
- * Validates user inputs and makes sure they are within the constraints of tehe app
+ * Validates user inputs and makes sure they are within the constraints of the app
  */
 public class ExpenseTrackerApp {
 
