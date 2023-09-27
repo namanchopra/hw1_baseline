@@ -7,8 +7,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List; 
 
+/**
+ * The ExpenseTrackerView class accounts for the MVC structure of the app and manipulates user inputs
+ */
 public class ExpenseTrackerView extends JFrame {
 
+  // Private variables used
   private JTable transactionsTable;
   private JButton addTransactionBtn;
   private JTextField amountField;
@@ -17,11 +21,12 @@ public class ExpenseTrackerView extends JFrame {
   private List<Transaction> transactions = new ArrayList<>();
 
   
-
+  // Returns the Transaction Table
   public JTable getTransactionsTable() {
     return transactionsTable;
   }
 
+  // Returns the value in the amount field
   public double getAmountField() {
     if(amountField.getText().isEmpty()) {
       return 0;
@@ -31,25 +36,32 @@ public class ExpenseTrackerView extends JFrame {
     }
   }
 
+  // Sets the amountfield
   public void setAmountField(JTextField amountField) {
     this.amountField = amountField;
   }
 
+  // Returns the category field
   public String getCategoryField() {
     return categoryField.getText();
   }
 
+  // Sets the category field
   public void setCategoryField(JTextField categoryField) {
     this.categoryField = categoryField;
   }
 
+  // Gets the transaction button
   public JButton getAddTransactionBtn() {
     return addTransactionBtn;
   }
+
+  //Returns the model of the table
   public DefaultTableModel getTableModel() {
     return model;
   }
 
+  // The mainframe for the View to the useer in the MVC structure and UI of the app
   public ExpenseTrackerView(DefaultTableModel model) {
     setTitle("Expense Tracker"); // Set title
     setSize(600, 400); // Make GUI larger
@@ -88,6 +100,7 @@ public class ExpenseTrackerView extends JFrame {
   
   }
 
+  // Refreshes the transaction table with changes that are made after the last call
   public void refreshTable(List<Transaction> transactions) {
       // model.setRowCount(0);
       model.setRowCount(0);
@@ -110,6 +123,7 @@ public class ExpenseTrackerView extends JFrame {
   
     }  
 
+  // calls the refreshTable method
   public void refresh() {
 
     // Get transactions from model
@@ -120,10 +134,12 @@ public class ExpenseTrackerView extends JFrame {
   
   }
 
+  // returns the transactions table
   public List<Transaction> getTransactions() {
     return transactions;
   }
   
+  // Adds the transaction to the transaction list and refreshes
   public void addTransaction(Transaction t) {
     transactions.add(t);
     getTableModel().addRow(new Object[]{t.getAmount(), t.getCategory(), t.getTimestamp()});

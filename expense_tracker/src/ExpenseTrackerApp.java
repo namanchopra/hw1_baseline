@@ -29,7 +29,8 @@ public class ExpenseTrackerApp {
        // Get transaction data from view
        double amount;
        String category;
- 
+      
+       // Run the model and validate the user inputs
        try {
          amount = view.getAmountField();
          InputValidation.validateAmount(amount);
@@ -42,7 +43,7 @@ public class ExpenseTrackerApp {
          view.addTransaction(t);
  
       } catch(NumberFormatException x) {
- 
+         
          JOptionPane.showMessageDialog(new JFrame(), "Invalid input for amount. Please enter a valid number.");
  
       } catch(IllegalArgumentException x){
