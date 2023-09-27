@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.Arrays;
 
 /** 
- * The InputValidation class takes caring of checking user input and setting constraints to it
+ * The InputValidation class takes caring of checking user input and setting constraints to it.s
  */
 public class InputValidation {
     
