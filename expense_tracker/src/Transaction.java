@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * The Transaction class creates a transaction object to be used in the list of transaction for the app
+ * The Transaction class creates a transaction object to be used in the list of transaction for the app.
  */
 public class Transaction {
 

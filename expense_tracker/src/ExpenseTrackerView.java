@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * The ExpenseTrackerView class accounts for the MVC structure of the app and manipulates user inputs
+ * It does so by using the JFrame class for creating the UI of the app.
+ * The User inputs are then stored in private variables that create a list for transactions which stores every transaction detail.
  */
 public class ExpenseTrackerView extends JFrame {
 

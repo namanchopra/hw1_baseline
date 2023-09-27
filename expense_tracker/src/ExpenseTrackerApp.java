@@ -4,6 +4,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * The ExpenseTrackerApp class allows users to add/remove daily transactions.
+ * Validates user inputs and makes sure they are within the constraints of tehe app
  */
 public class ExpenseTrackerApp {
 
@@ -43,7 +44,7 @@ public class ExpenseTrackerApp {
          view.addTransaction(t);
  
       } catch(NumberFormatException x) {
-         
+
          JOptionPane.showMessageDialog(new JFrame(), "Invalid input for amount. Please enter a valid number.");
  
       } catch(IllegalArgumentException x){
